@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Mukta', sans-serif;
+}
+
+.nav-container {
+    width: 100vw;
+    background-color: black;
+    padding: 20px;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-items-container {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item-container {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+}
