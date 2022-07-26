@@ -15,7 +15,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, "mongo connection error"));
 
 const app = express();
-app.set('view engine', 'ejs');
+app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(session({ secret: process.env.sessionSecret, resave: false, saveUninitialized: true }));
