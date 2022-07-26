@@ -1,4 +1,8 @@
 extends layout
 
+block append stylelink
+    link(href="/stylesheets/index.css")
+
 block content
-    h1= "hello world!"
+    div.content
+        h1 "Hello"
