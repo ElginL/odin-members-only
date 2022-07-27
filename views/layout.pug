@@ -8,16 +8,15 @@ html(lang="en")
             link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
             link(href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet")
     body
-        nav
-            div.nav-container
-                div.brand-container
-                    img(src="/images/logo.svg" alt="brand")
-                    h2 Members Only
-                div.nav-items-container
-                    a.nav-item-container(href="")
-                        img(src="/images/login.svg" alt="login")
-                        p Log In
-                    a.nav-item-container(href="")
-                        img(src="/images/register.svg" alt="register")
-                        p Sign Up
+        nav.nav-container
+            div.brand-container
+                img(src="/images/logo.svg" alt="brand")
+                h2 Members Only
+            div.nav-items-container
+                a.nav-item-container(href="")
+                    img(src="/images/login.svg" alt="login")
+                    p Log In
+                a.nav-item-container(href="")
+                    img(src="/images/register.svg" alt="register")
+                    p Sign Up
         block content

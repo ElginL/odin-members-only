@@ -1,8 +1,19 @@
 extends layout
 
 block append stylelink
-    link(href="/stylesheets/index.css")
+    link(rel="stylesheet" href="/stylesheets/index.css")
 
 block content
-    div.content
-        h1 "Hello"
+    div.content-container
+        div.posts-container
+            div.post-container
+                div.left-container
+                    img(src="/images/grinning.svg")
+                div.right-container
+                    div.top-container
+                        h2.fullname Elgin Lee
+                        h2.username @ElginL
+                        h3 27 July, 14:30
+                    p.title Welcome to Members Only.
+                    p.content You cannot see who and when a post is created until you become a member. <br/>
+                        | You can sign up for an account and become a member!
