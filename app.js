@@ -159,6 +159,16 @@ app.post(
 
 app.get('/login-failed', (req, res) => {
     res.render('loginFailed')
+});
+
+app.get('/log-out', (req, res) => {
+    req.logout(err => {
+        if (err) {
+            return next(err);
+        }
+    })
+    
+    res.redirect('/');
 })
 
 // catch 404 and forward to error handler

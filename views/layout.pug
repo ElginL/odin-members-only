@@ -12,11 +12,19 @@ html(lang="en")
             a.brand-container(href="/")
                 img(src="/images/logo.svg" alt="brand")
                 h2 Members Only
-            div.nav-items-container
-                a.nav-item-container(href="/log-in")
-                    img(src="/images/login.svg" alt="login")
-                    p Log In
-                a.nav-item-container(href="/sign-up")
-                    img(src="/images/register.svg" alt="register")
-                    p Sign Up
+            if !currentUser
+                div.nav-items-container
+                    a.nav-item-container(href="/log-in")
+                        img(src="/images/login.svg" alt="login")
+                        p Log In
+                    a.nav-item-container(href="/sign-up")
+                        img(src="/images/register.svg" alt="register")
+                        p Sign Up
+            else
+                div.nav-items-container
+                    a.nav-item-container(href="/log-out")
+                        img(src="/images/logout.svg" alt="logout")
+                        p Sign Out
+                    a.nav-item-container(href="")
+                        hello
         block content
