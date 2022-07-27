@@ -9,14 +9,14 @@ html(lang="en")
             link(href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet")
     body
         nav.nav-container
-            div.brand-container
+            a.brand-container(href="/")
                 img(src="/images/logo.svg" alt="brand")
                 h2 Members Only
             div.nav-items-container
-                a.nav-item-container(href="")
+                a.nav-item-container(href="/log-in")
                     img(src="/images/login.svg" alt="login")
                     p Log In
-                a.nav-item-container(href="")
+                a.nav-item-container(href="/sign-up")
                     img(src="/images/register.svg" alt="register")
                     p Sign Up
         block content

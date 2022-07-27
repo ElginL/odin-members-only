@@ -1,13 +1,7 @@
-.content-container {
-    display: flex;
-    justify-content: center;
-    background-color: rgb(29, 28, 28);
-    min-height: 100vh;
-}
-
 .posts-container {
     padding-top: 200px;
     width: 60%;
+    margin: 0 auto;
 }
 
 .post-container {

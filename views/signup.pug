@@ -1,0 +1,26 @@
+extends layout
+
+block append stylelink
+    link(rel="stylesheet" href="/stylesheets/signup.css")
+
+block content
+    div.form-container
+        h1 Sign Up
+        form.form(method="POST" action="/sign-up")
+            div.field-container
+                label(for="fullname") Full Name
+                input(type="text" name="fullname" min="5" max="30" placeholder="Full Name" value=fullname)
+            div.field-container
+                label(for="username") Username
+                input(type="text" name="username" min="5" max="20" placeholder="Username" value=username)
+            div.field-container
+                label(for="password") Password
+                input(type="password" name="password" min="6" placeholder="Password" value=password)
+            div.field-container
+                label(for="confirm-password") Confirm Password
+                input(type="password" name="confirm-password" min="6" placeholder="Confirm Password" value=confirmPassword)
+            div.errors-container
+                if errors
+                    each error in errors
+                        p.error-msg !{error.msg}
+            button.sign-up-btn Sign Up

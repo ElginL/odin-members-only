@@ -20,6 +20,10 @@ const PostSchema = new Schema({
     timestamp: {
         type: Date,
         required: true
+    },
+    emoji: {
+        type: String,
+        required: true
     }
 });
 

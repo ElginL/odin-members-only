@@ -5,6 +5,13 @@
 body {
     margin: 0;
     font-family: 'Mukta', sans-serif;
+    background-color: rgb(29, 28, 28);
+    min-height: 100vh;
+}
+
+.brand-container {
+    text-decoration: none;
+    color: white;
 }
 
 .nav-container {

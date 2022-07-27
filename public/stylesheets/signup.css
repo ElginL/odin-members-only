@@ -1,0 +1,48 @@
+.form-container {
+    padding-top: 150px;
+    color: white;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.form-container > h1 {
+    text-align: center;
+}
+
+.field-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.field-container > label {
+    font-size: 1.3rem;
+}
+
+.field-container > input {
+    padding: 10px 5px;
+}
+
+.sign-up-btn {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 10px 0;
+    background-color:rgb(0, 191, 255);
+    margin: 10px 0;
+    transition: background-color 0.2s;
+}
+
+.sign-up-btn:hover {
+    cursor: pointer;
+    background-color: rgb(15, 171, 223)
+}
+
+.feeling-box {
+    font-size: 1.3rem;
+    padding: 10px 0;
+}
+
+.error-msg {
+    color: red;
+    margin: 5px;
+}
