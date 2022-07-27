@@ -22,6 +22,10 @@ const UserSchema = new Schema({
     isMember: { 
         type: Boolean, 
         required: true 
+    },
+    avatar: {
+        type: String,
+        required: true
     }
 })
 
