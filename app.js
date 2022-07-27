@@ -27,6 +27,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    next();
+})
+
 passport.use(new LocalStrategy(
     function(username, password, done) {
         User.findOne({ username: username }, (err, user) => {
@@ -35,19 +40,30 @@ passport.use(new LocalStrategy(
             }
 
             if (!user) {
-                return done(null, false);
+                return done(null, false, { message: "Invalid Username" });
             }
 
             bcrypt.compare(password, user.password, (err, result) => {
-                if (!result) {
-                    return done(null, false);
+                if (result) {
+                    return done(null, user);
+                } else {
+                    return done(null, false, { message: "Incorrect Password" });
                 }
             })
 
-            return done(null, user);
         }) 
     }
 ));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+        done(err, user);
+    })
+})
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -127,7 +143,23 @@ app.post(
         });
         res.redirect('/');
     }
-)
+);
+
+app.get('/log-in', (req, res) => {
+    res.render('login');
+});
+
+app.post(
+    "/log-in",
+    passport.authenticate("local", {
+        successRedirect: "/",
+        failureRedirect: "/login-failed"
+    })
+);
+
+app.get('/login-failed', (req, res) => {
+    res.render('loginFailed')
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

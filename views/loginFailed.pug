@@ -1,0 +1,12 @@
+extends layout
+
+block append stylelink
+    link(rel="stylesheet" href="/stylesheets/loginFailed.css")
+
+block content
+    div.auth-error
+        h1 Authentication Error
+        div.error-message
+            img(src="/images/warning.svg" alt="warning")
+            p Username or password is incorrect
+        a.return-btn(href="/log-in") Return to Log In

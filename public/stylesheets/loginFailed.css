@@ -1,0 +1,42 @@
+.auth-error {
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.auth-error > h1 {
+    color: red;
+    text-align: center;
+}
+
+.auth-error > p {
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.error-message {
+    display: flex;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.error-message > p {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.return-btn {
+    margin: 30px auto;
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    background-color: rgb(0, 191, 255);
+    padding: 10px 20px;
+    transition: background-color 0.2s;
+}
+
+.return-btn:hover {
+    background-color: rgb(17, 158, 205);
+}

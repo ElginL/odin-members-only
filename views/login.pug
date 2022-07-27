@@ -1,0 +1,18 @@
+extends layout
+
+block append stylelink
+    link(rel="stylesheet" href="/stylesheets/login.css")
+
+block content
+    div.login-container
+        h1 Log In
+        form(action="/log-in" method="POST")
+            div.field-container
+                label(for="username") Username
+                input(type="text" name="username" placeholder="Username")
+            div.field-container
+                label(for="password") Password
+                input(type="password" name="password" placeholder="Password")
+            if error
+                p !{error}
+            button.login-btn Log In
