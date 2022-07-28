@@ -10,8 +10,8 @@ const createPost = () => [
     body('content')
         .trim()
         .escape()
-        .isLength({ min: 10, max: 60 })
-        .withMessage("Content must be between 10 and 60 characters"),
+        .isLength({ min: 10, max: 120 })
+        .withMessage("Content must be between 10 and 120 characters"),
     (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -44,7 +44,22 @@ const renderCreatePost = (req, res) => {
     res.render('createPost');
 }
 
+const deletePost = (req, res, next) => {
+    const id = req.params.id;
+
+    if (req.user && req.user.isAdmin) {
+        Post.findByIdAndDelete(id, (err, results) => {
+            if (err) {
+                return next(err);
+            }
+
+            res.redirect('/');
+        })
+    }
+}
+
 module.exports = {
     createPost,
-    renderCreatePost
+    renderCreatePost,
+    deletePost
 }

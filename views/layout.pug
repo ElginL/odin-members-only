@@ -2,6 +2,7 @@ doctype html
 html(lang="en")
     head
         title Members Only
+        block script
         block stylelink
             link(rel='stylesheet' href="/stylesheets/layout.css")
             link(rel="preconnect" href="https://fonts.googleapis.com")
@@ -27,7 +28,7 @@ html(lang="en")
                         p Create a post
                     a.nav-item-container(href="/membership/join")
                         p Membership
-                    a.nav-item-container(href="")
+                    a.nav-item-container(href="/admin/join")
                         p Admin
                     a.nav-item-container(href="/log-out")
                         img(src="/images/logout.svg" alt="logout")

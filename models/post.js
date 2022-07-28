@@ -14,7 +14,7 @@ const PostSchema = new Schema({
         type: String,
         required: true,
         minlength: 10,
-        maxlength: 60
+        maxlength: 120
     },
     creator: {
         type: mongoose.Schema.Types.ObjectId,
@@ -24,11 +24,9 @@ const PostSchema = new Schema({
         type: String,
         required: true,
         enum: ["angry", "bigsmile", "cry", "grinning", "laugh", "lookup", "sad", "smileysweat"]
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now()
     }
+}, {
+    timestamps: { createdAt: true, updatedAt: false }
 })
 
 PostSchema

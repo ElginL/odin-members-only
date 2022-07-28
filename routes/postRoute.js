@@ -8,4 +8,6 @@ router.get('/create', postController.renderCreatePost);
 // Create post
 router.post('/create', postController.createPost());
 
+router.get('/delete/:id', postController.deletePost);
+
 module.exports = router;

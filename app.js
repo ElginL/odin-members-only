@@ -13,6 +13,7 @@ const Posts = require('./models/post');
 const authRoute = require('./routes/authRoute');
 const postRoute = require('./routes/postRoute');
 const memberRoute = require('./routes/memberRoute');
+const adminRoute = require('./routes/adminRoute');
 
 require('dotenv').config();
 
@@ -96,6 +97,7 @@ app.use((req, res, next) => {
 
 app.use('/posts', postRoute);
 app.use('/membership', memberRoute);
+app.use('/admin', adminRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

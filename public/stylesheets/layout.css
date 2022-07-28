@@ -23,11 +23,13 @@ body {
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    z-index: 100000;
 }
 
 .nav-items-container {
     display: flex;
     gap: 30px;
+    margin-right: 10px;
 }
 
 .nav-item-container {

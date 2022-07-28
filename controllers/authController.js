@@ -69,7 +69,7 @@ const signUpUser = () => [
                 }
             });
         });
-        res.redirect('/');
+        res.redirect('/log-in');
     }
 ]
 

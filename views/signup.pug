@@ -9,16 +9,16 @@ block content
         form.form(method="POST" action="/sign-up")
             div.field-container
                 label(for="fullname") Full Name
-                input(type="text" name="fullname" min="5" max="30" placeholder="Full Name" value=fullname)
+                input(type="text" name="fullname" minlength="5" maxlength="30" placeholder="Full Name" value=fullname)
             div.field-container
                 label(for="username") Username
-                input(type="text" name="username" min="5" max="20" placeholder="Username" value=username)
+                input(type="text" name="username" minlength="5" maxlength="20" placeholder="Username" value=username)
             div.field-container
                 label(for="password") Password
-                input(type="password" name="password" min="6" placeholder="Password" value=password)
+                input(type="password" name="password" minlength="6" placeholder="Password" value=password)
             div.field-container
                 label(for="confirm-password") Confirm Password
-                input(type="password" name="confirm-password" min="6" placeholder="Confirm Password" value=confirmPassword)
+                input(type="password" name="confirm-password" minlength="6" placeholder="Confirm Password" value=confirmPassword)
             div.errors-container
                 if errors
                     each error in errors

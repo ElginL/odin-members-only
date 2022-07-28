@@ -1,0 +1,24 @@
+extends layout
+
+block append stylelink
+    link(rel="stylesheet" href="/stylesheets/memberJoin.css")
+
+block content
+    if currentUser && !currentUser.isAdmin
+        div.membership-container
+            h1 Become an Admin
+            p Get the ability to delete posts from <strong>any</strong> users
+            p Enter the password given by the creator of this application
+            form.form(action="/admin/join" method="POST")
+                input(type="password" placeholder="Enter Password (adm1n)" name="password")
+                button.submit-btn Join
+                if errors
+                    div.errors-container
+                        each error in errors
+                            p !{error.msg}
+            img.member-img(src="/images/admin.png" alt="admin")
+    else
+        div.membership-container
+            h1 !{currentUser.fullname},
+            p You are already an admin!
+            img.star-img(src="/images/star.svg")

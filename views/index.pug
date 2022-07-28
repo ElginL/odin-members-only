@@ -1,5 +1,8 @@
 extends layout
 
+block append script
+    script(src="/javascripts/delete.js" defer)
+
 block append stylelink
     link(rel="stylesheet" href="/stylesheets/index.css")
 
@@ -21,6 +24,7 @@ block content
                         h3 XX XXXXX XXXX, XX:XX
                 p.title Welcome to Members Only.
                 p.content You cannot see who and when a post is created until you become a member. <br/>
+                    | Being an admin allows you to delete posts! <br/>
                     | You can sign up for an account and become a member!
         each post in posts
             div.post-container
@@ -32,6 +36,9 @@ block content
                             h2.fullname !{post.creator.fullname}
                             h3.username @!{post.creator.username}
                             h3 !{post.createdAtFormatted}
+                            if currentUser.isAdmin
+                                img.more-btn(src="/images/more.svg")
+                                a.delete-post-btn(href=`/posts/delete/${post._id}`) Delete
                     else
                         div.top-container
                             h2.fullname XXXXXXXX
