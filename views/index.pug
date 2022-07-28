@@ -9,10 +9,16 @@ block content
             div.left-container
                 img(src="/images/grinning.svg")
             div.right-container
-                div.top-container
-                    h2.fullname Elgin Lee
-                    h2.username @ElginL
-                    h3 27 July 2022, 14:30
+                if currentUser && currentUser.isMember
+                    div.top-container
+                        h2.fullname Elgin Lee
+                        h2.username @ElginL
+                        h3 27 July 2022, 14:30
+                else
+                    div.top-container
+                        h2.fullname XXXXXXXX
+                        h2.username @XXXXXXX
+                        h3 XX XXXXX XXXX, XX:XX
                 p.title Welcome to Members Only.
                 p.content You cannot see who and when a post is created until you become a member. <br/>
                     | You can sign up for an account and become a member!
@@ -21,9 +27,15 @@ block content
                 div.left-container
                     img(src=`/images/${post.emoji}.svg`)
                 div.right-container
-                    div.top-container
-                        h2.fullname !{post.creator.fullname}
-                        h3.username @!{post.creator.username}
-                        h3 !{post.createdAtFormatted}
+                    if currentUser && currentUser.isMember
+                        div.top-container
+                            h2.fullname !{post.creator.fullname}
+                            h3.username @!{post.creator.username}
+                            h3 !{post.createdAtFormatted}
+                    else
+                        div.top-container
+                            h2.fullname XXXXXXXX
+                            h2.username @XXXXXXX
+                            h3 XX XXXXX XXXX, XX:XX
                     p.title !{post.title}
                     p.content !{post.text}

@@ -12,8 +12,7 @@ const Posts = require('./models/post');
 
 const authRoute = require('./routes/authRoute');
 const postRoute = require('./routes/postRoute');
-
-const { DateTime } = require('luxon');
+const memberRoute = require('./routes/memberRoute');
 
 require('dotenv').config();
 
@@ -84,7 +83,6 @@ app.get('/', (req, res, next) => {
         });
 })
 
-
 // Express Routers
 app.use('/', authRoute);
 
@@ -97,6 +95,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/posts', postRoute);
+app.use('/membership', memberRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

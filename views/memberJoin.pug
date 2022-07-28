@@ -1,0 +1,25 @@
+extends layout
+
+block append stylelink
+    link(rel='stylesheet' href="/stylesheets/memberJoin.css")
+
+block content
+    if currentUser && !currentUser.isMember
+        div.membership-container
+            h1 Become a Member
+            p Get the ability to see <em>who</em> and <em>when</em> a post was created
+            p Enter the password given by the creator of this application
+            form.form(action="/membership/join" method="POST")
+                input(type="password" placeholder="Enter Password (m3mb3rsh1p)" name="password")
+                button.submit-btn Join
+                if errors
+                    div.errors-container
+                        each error in errors
+                            p !{error.msg}
+            img.member-img(src="/images/membership.jpg" alt="membership")
+    else
+        div.membership-container
+            h1 !{currentUser.fullname},
+            p You are already a member!
+            img.star-img(src="/images/star.svg")
+        
