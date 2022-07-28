@@ -23,7 +23,7 @@
     padding: 10px 5px;
 }
 
-.sign-up-btn {
+.btn {
     width: 100%;
     font-size: 1.5rem;
     padding: 10px 0;
@@ -32,7 +32,7 @@
     transition: background-color 0.2s;
 }
 
-.sign-up-btn:hover {
+.btn:hover {
     cursor: pointer;
     background-color: rgb(15, 171, 223)
 }

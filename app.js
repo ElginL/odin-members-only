@@ -8,8 +8,12 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const User = require('./models/user');
+const Posts = require('./models/post');
 
 const authRoute = require('./routes/authRoute');
+const postRoute = require('./routes/postRoute');
+
+const { DateTime } = require('luxon');
 
 require('dotenv').config();
 
@@ -66,11 +70,33 @@ passport.deserializeUser(function(id, done) {
     })
 })
 
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/', (req, res, next) => {
+    Posts.find()
+        .populate('creator')
+        .exec((err, results) => {
+            if (err) {
+                return next(err)
+            }
+
+            res.render('index', {
+                posts: results
+            })
+        });
 })
 
+
+// Express Routers
 app.use('/', authRoute);
+
+// Allow only user who are authenticated to access the routers below.
+app.use((req, res, next) => {
+    if (!req.user) {
+        return res.redirect('/log-in')
+    }
+    next();
+})
+
+app.use('/posts', postRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -86,6 +112,6 @@ app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
-});  
+});
 
 app.listen(3000, () => console.log("app listening on port 3000!"));

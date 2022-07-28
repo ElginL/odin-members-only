@@ -1,0 +1,31 @@
+extends layout
+
+block append stylelink
+    link(rel="stylesheet" href="/stylesheets/signup.css")
+
+block content
+    div.form-container
+        h1 Create a Post
+        form.form(action="/posts/create", method="POST")
+            div.field-container
+                label(for="title") Title
+                input(type="text" name="title" placeholder="Title" min="10" max="30" value=title)
+            div.field-container
+                label(for="content") Content
+                input(type="text" name="content" placeholder="Enter your text here..." min="5" max="60" value=content)
+            div.field-container
+                label(for="feeling") How are you feeling?
+                select.feeling-box(name="feeling")
+                    option(value="grinning") Grinning
+                    option(value="bigsmile") Happy
+                    option(value="lookup") Confused
+                    option(value="smileysweat") Relief
+                    option(value="angry") Angry
+                    option(value="cry") Crying
+                    option(value="laugh") Laughing
+                    option(value="sad") Sad
+            div.errors-container
+                if errors
+                    each error in errors
+                        p.error-msg !{error.msg} 
+            button.btn Create

@@ -12,7 +12,18 @@ block content
                 div.top-container
                     h2.fullname Elgin Lee
                     h2.username @ElginL
-                    h3 27 July, 14:30
+                    h3 27 July 2022, 14:30
                 p.title Welcome to Members Only.
                 p.content You cannot see who and when a post is created until you become a member. <br/>
                     | You can sign up for an account and become a member!
+        each post in posts
+            div.post-container
+                div.left-container
+                    img(src=`/images/${post.emoji}.svg`)
+                div.right-container
+                    div.top-container
+                        h2.fullname !{post.creator.fullname}
+                        h3.username @!{post.creator.username}
+                        h3 !{post.createdAtFormatted}
+                    p.title !{post.title}
+                    p.content !{post.text}

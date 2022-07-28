@@ -67,7 +67,6 @@ const signUpUser = () => [
                 if (err) {
                     return next(err);
                 }
-
             });
         });
         res.redirect('/');
