@@ -45,3 +45,38 @@ body {
     display: flex;
     align-items: center;
 }
+
+.hamburger {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.sidebar {
+    width: 50vw;
+    height: 100vh;
+    position: absolute;
+    background-color: white;
+    right: 0;
+    top: 0;
+    transform: translateX(50vw);
+}
+
+@media(max-width: 925px) {
+    .nav-container {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 670px) {
+    .nav-items-container {
+        gap: 15px;
+    }
+}

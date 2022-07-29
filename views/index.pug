@@ -10,7 +10,7 @@ block content
     div.posts-container
         div.post-container
             div.left-container
-                img(src="/images/grinning.svg")
+                img.emoji-img(src="/images/grinning.svg")
             div.right-container
                 if currentUser && currentUser.isMember
                     div.top-container
@@ -29,7 +29,7 @@ block content
         each post in posts
             div.post-container
                 div.left-container
-                    img(src=`/images/${post.emoji}.svg`)
+                    img.emoji-img(src=`/images/${post.emoji}.svg`)
                 div.right-container
                     if currentUser && currentUser.isMember
                         div.top-container
