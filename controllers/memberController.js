@@ -2,7 +2,7 @@ const { body, validationResult } = require('express-validator');
 const User = require('../models/user');
 
 const renderJoinMember = (req, res) => {
-    res.render('memberjoin');
+    res.render('memberJoin');
 }
 
 const joinMember = () => [
