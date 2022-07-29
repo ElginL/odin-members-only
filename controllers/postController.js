@@ -15,7 +15,7 @@ const createPost = () => [
     (req, res, next) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            res.render('create', {
+            res.render('createPost', {
                 errors: errors.array(),
                 title: req.body.title,
                 content: req.body.content
